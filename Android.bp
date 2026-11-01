@@ -5,3 +5,33 @@
 soong_namespace {
 }
 
+// Android 14 rejects ELF libraries copied through PRODUCT_COPY_FILES. These
+// modules preserve each legacy blob name and vendor/lib subdirectory.
+cc_prebuilt_library_shared {
+    name: "virgo_vendor_blob_libsensors_leo",
+    owner: "xiaomi",
+    srcs: ["proprietary/vendor/lib/libsensors.leo.so"],
+    stem: "libsensors.leo",
+    strip: {
+        none: true,
+    },
+    compile_multilib: "32",
+    check_elf_files: false,
+    prefer: true,
+    soc_specific: true,
+}
+
+cc_prebuilt_library_shared {
+    name: "virgo_vendor_blob_libinvensense_hal",
+    owner: "xiaomi",
+    srcs: ["proprietary/vendor/lib/libinvensense_hal.so"],
+    stem: "libinvensense_hal",
+    strip: {
+        none: true,
+    },
+    compile_multilib: "32",
+    check_elf_files: false,
+    prefer: true,
+    soc_specific: true,
+}
+

@@ -5,6 +5,7 @@
 PRODUCT_SOONG_NAMESPACES += \
     vendor/xiaomi/virgo
 
-PRODUCT_COPY_FILES += \
-    vendor/xiaomi/virgo/proprietary/vendor/lib/libsensors.leo.so:$(TARGET_COPY_OUT_VENDOR)/lib/libsensors.leo.so \
-    vendor/xiaomi/virgo/proprietary/vendor/lib/libinvensense_hal.so:$(TARGET_COPY_OUT_VENDOR)/lib/libinvensense_hal.so
+# Android 14-compatible Soong modules for the legacy vendor ELF libraries.
+PRODUCT_PACKAGES += \
+    virgo_vendor_blob_libinvensense_hal \
+    virgo_vendor_blob_libsensors_leo
